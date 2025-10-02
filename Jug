@@ -1,0 +1,42 @@
+capacity = (12, 8, 5)
+initial_state = (12, 0, 0)
+final_state = (6, 6, 0)
+
+visited = set()
+solution_path = []
+
+def get_all_states(state):
+    if state == final_state:
+        solution_path.append(state)
+        return True
+    
+    if state in visited:
+        return False
+
+    visited.add(state)
+    a,b,c = state
+    jugs = [a, b, c]
+    cap = capacity
+
+    for i in range(3):
+        for j in range(3):
+            if i != j and jugs[i] > 0 and jugs[j] < cap[j]:
+                #calculate how much to pour
+                poured = min(jugs[i] , cap[j] - jugs[j])
+                next_state = list(jugs)
+                next_state[i] -= poured
+                next_state[j] += poured
+                if get_all_states(tuple(next_state)):
+                    solution_path.append(state)
+                    return True
+    return False
+
+print("solving 3-Jug problem...|\n")
+if get_all_states(initial_state):
+    solution_path.reverse()
+    print("Solution path:")
+    for state in solution_path:
+        print(f"Jug A: [state[0]]L, Jug B: [state[1]]L, Jug C: [state[1]]L")
+else:
+    print("NO Solution found")
+
