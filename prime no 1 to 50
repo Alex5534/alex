@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Prime Numbers from 1 to 50</title>
+    <style>
+        body {
+            font-family: Arial;
+            text-align: center;
+            margin-top: 50px;
+        }
+        #result {
+            margin-top: 20px;
+            font-weight: bold;
+            color: darkblue;
+        }
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+        }
+    </style>
+</head>
+<body>
+    <h2>Prime Numbers from 1 to 50</h2>
+    <button onclick="displayPrimes()">Show Primes</button>
+    <div id="result"></div>
+
+    <script>
+        function displayPrimes() {
+            let primes = [];
+
+            for (let i = 2; i <= 50; i++) {
+                let isPrime = true;
+                for (let j = 2; j <= Math.sqrt(i); j++) {
+                    if (i % j === 0) {
+                        isPrime = false;
+                        break;
+                    }
+                }
+                if (isPrime) primes.push(i);
+            }
+
+            document.getElementById('result').innerText = "Prime Numbers: " + primes.join(", ");
+        }
+    </script>
+</body>
+</html>
