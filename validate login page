@@ -1,0 +1,10 @@
+private void button1_Click(object sender, EventArgs e)
+{
+    string user = txtuser.Text;
+    string password = txtpass.Text;
+
+    if (user == "Surya" && password == "72083")
+        MessageBox.Show("Login Done!");
+    else
+        MessageBox.Show("Invalid!");
+}
