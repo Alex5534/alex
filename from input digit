@@ -1,0 +1,11 @@
+using System;
+class Word
+{
+    static void Main()
+    {
+        string[] words = { "zero", "one", "two", "three", "four", "five", "six", "seven", "eight", "nine" };
+        Console.WriteLine("Enter the number:");
+        int.TryParse(Console.ReadLine(), out int n);
+        Console.WriteLine(words[n]);   
+    }
+}
