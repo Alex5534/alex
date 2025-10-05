@@ -1,0 +1,17 @@
+using System;
+public class HelloWorld
+{
+    public static void Main(string[] args)
+    {
+        Console.WriteLine("Enter the name:");
+        string name = Console.ReadLine();
+
+        Console.WriteLine("Enter the roll number:");
+        int.TryParse(Console.ReadLine(), out int roll);
+
+        Console.WriteLine("Enter the age:");
+        int.TryParse(Console.ReadLine(), out int age);
+
+        Console.WriteLine($"Student name is {name}, Roll number is {roll}, and Age is {age}");
+    }
+}
