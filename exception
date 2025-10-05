@@ -1,0 +1,94 @@
+9. WAP to handle format exception.
+Code:
+using System;
+class exception{
+    public static void Main(){
+        try{
+            Console.WriteLine("Enter any number:");
+            int num = int.Parse(Console.ReadLine());
+            Console.WriteLine("You entered:" + num);
+        }
+        catch (FormatException exe)
+        {
+            Console.WriteLine(exe.Message);
+            Console.WriteLine("You entered a character please entered any string!");
+        }
+    }
+}
+Output:
+ 
+ 
+
+
+
+
+10. WAP to handle divide by zero exception.
+Code: 
+using System;
+class exception{
+public static void Main(){
+        try{
+            Console.WriteLine("Enter First Number:");
+            int num1 = int.Parse(Console.ReadLine());
+            Console.WriteLine("Enter Second Number:");
+            int num2 = int.Parse(Console.ReadLine());
+            int result = num1 / num2;
+        }
+        catch (DivideByZeroException exe){
+            Console.WriteLine(exe.Message);
+        }
+    }
+}
+Output:
+ 
+
+
+
+
+
+
+11. WAP to handle array index out of bound exception.
+Code:
+using System;
+class exception{
+    public static void Main(){
+        try{
+            int[] arr = { 1, 2, 3, 4, 5 };
+            Console.WriteLine(arr[6]);
+        }
+        catch (IndexOutOfRangeException exe)
+        {
+            Console.WriteLine(exe.Message);
+        }
+    }
+}
+Output:
+ 
+
+
+
+
+
+
+
+
+
+
+
+12.WAP to demonstrate finally block and null exception.
+Code:
+using System;
+class exception{
+    public static void Main(){
+        try{
+            string str = null;
+            int str1 = str.Length;
+        }
+        catch (NullReferenceException exe){
+            Console.WriteLine(exe.Message);
+        }
+        finally{
+            Console.WriteLine("The Finally Block is Executed!!");
+        }
+    }
+}
