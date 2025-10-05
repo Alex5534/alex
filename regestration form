@@ -1,0 +1,14 @@
+private void btnRegister_Click(object sender, EventArgs e)
+{
+    string name = txtName.Text;
+    string age = txtAge.Text;
+    string gender = cmbGender.Text;
+    string course = cmbCourse.Text;
+    if (name == "" || age == "" || gender == "" || course == "") {
+        MessageBox.Show("Please fill all the details!");
+    }
+    else{
+        string info = $"Name: {name}\nAge: {age}\nGender: {gender}\nCourse: {course}";
+        MessageBox.Show(info, "Registration Details");
+    }
+}
