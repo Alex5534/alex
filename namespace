@@ -1,0 +1,18 @@
+using Mynamespace;
+using System;
+namespace Mynamespace
+{
+    public class test2
+    {
+        public void display()
+        {
+            Console.WriteLine("Good Morning"!);
+        }
+    }
+}
+public class Test{
+    public static void Main(){
+        test2 t1 = new test2();
+        t1.display();
+    }
+}
