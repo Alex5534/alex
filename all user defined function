@@ -1,0 +1,27 @@
+using System;
+public class FunctionTypes{
+    void Greet(){
+        Console.WriteLine("Hello! Welcome to C# functions demo.");
+    }
+    void DisplaySquare(int n){
+        Console.WriteLine($"Square of {n} is {n * n}");
+    }
+    int GetNumber(){
+        Console.Write("Enter a number: ");
+        int num = int.Parse(Console.ReadLine());
+        return num;
+    }
+    int Add(int a, int b){
+        return a + b;
+    }
+    public static void Main(string[] args){
+        FunctionTypes obj = new FunctionTypes();
+        obj.Greet();
+        obj.DisplaySquare(5);
+        int x = obj.GetNumber();
+        Console.WriteLine($"You entered: {x}");
+        int sum = obj.Add(10, 20);
+        Console.WriteLine($"Sum of 10 and 20 is: {sum}");
+    }
+}
+
