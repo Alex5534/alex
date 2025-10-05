@@ -1,0 +1,24 @@
+using System;
+
+public class StudentGrade
+{
+    public static void Main(string[] args)
+    {
+        Console.WriteLine("Enter marks of the student:");
+        int marks = int.Parse(Console.ReadLine());
+        char grade;
+        if (marks >= 90)
+            grade = 'A';
+        else if (marks >= 80)
+            grade = 'B';
+        else if (marks >= 70)
+            grade = 'C';
+        else if (marks >= 60)
+            grade = 'D';
+        else
+            grade = 'F';
+        Console.WriteLine($"Marks: {marks}, Grade: {grade}");
+    }
+}
+
+
