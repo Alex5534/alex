@@ -1,0 +1,40 @@
+<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="post.aspx.cs" Inherits="WebApplication7.post" %>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <title>PostBack Demo</title>
+</head>
+<body style="text-align:center; font-family: Arial; margin-top:50px;">
+    <form id="form1" runat="server">
+        <asp:TextBox ID="TextBox1" runat="server" Height="25" AutoPostBack="True"></asp:TextBox>
+        <asp:Button ID="Button1" runat="server" Text="Click" 
+                    ForeColor="White" BackColor="DarkSlateGray" 
+                    OnClick="Button1_Click" Height="30" Width="50" BorderStyle="Groove" />
+        <br /><br />
+        <asp:Label ID="Label1" runat="server" ForeColor="Green"></asp:Label>
+    </form>
+</body>
+</html>
+In post.aspx.cs
+using System;
+using System.Web.UI;
+
+namespace WebApplication7
+{
+    public partial class post : Page
+    {
+        protected void Page_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        protected void Button1_Click(object sender, EventArgs e)
+        {
+            Label1.Text = "IsPostBack: " + IsPostBack + "<br/>";
+            if (IsPostBack)
+            {
+                Label1.Text += "TextBox Value: " + TextBox1.Text;
+            }
+        }
+    }
+}
