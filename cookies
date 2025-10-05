@@ -1,0 +1,63 @@
+<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Cookies.aspx.cs" Inherits="CookiesDemo.Cookies" %>
+
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <title>Cookies Demo</title>
+</head>
+<body style="text-align:center; font-family: Arial; margin-top:50px;">
+    <form id="form1" runat="server">
+        <asp:Label ID="Label1" runat="server" Text="Cookies" Font-Size="Larger" ForeColor="Black"></asp:Label><br/><br/>
+        
+        <asp:Button ID="Button1" runat="server" Text="Show Cookies" Font-Size="Larger" BackColor="Cyan" ForeColor="White" OnClick="Button1_Click"/><br/><br/>
+        
+        <asp:Label ID="Label2" runat="server" Font-Size="Larger" ForeColor="Black"></asp:Label>
+    </form>
+</body>
+</html>
+In cookies.aspx.cs
+using System;
+using System.Web;
+
+namespace CookiesDemo
+{
+    public partial class Cookies : System.Web.UI.Page
+    {
+        protected void Page_Load(object sender, EventArgs e)
+        {
+            if (!IsPostBack)
+            {
+                // Create cookie
+                HttpCookie cookie = new HttpCookie("User Info");
+                cookie["name"] = "Surya Jaiswar";
+                cookie["address"] = "Mumbai";
+                cookie["country"] = "India";
+                cookie.Expires = DateTime.Now.AddSeconds(30); // cookie expires in 30 seconds
+                Response.Cookies.Add(cookie);
+
+                Label2.Text = "Cookie has been created!";
+            }
+        }
+
+        protected void Button1_Click(object sender, EventArgs e)
+        {
+            // Retrieve cookie
+            HttpCookie cookie = Request.Cookies["User Info"];
+            if (cookie != null)
+            {
+                string name = cookie["name"];
+                string add = cookie["address"];
+                string country = cookie["country"];
+
+                Label2.Text = "<br>Cookie has been retrieved successfully!";
+                Label2.Text += "<br>Your name: " + name;
+                Label2.Text += "<br>I live in: " + add;
+                Label2.Text += "<br>My country name is: " + country;
+            }
+            else
+            {
+                Label2.Text = "Cookie has expired or does not exist!";
+            }
+        }
+    }
+}
