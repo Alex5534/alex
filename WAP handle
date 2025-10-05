@@ -1,0 +1,15 @@
+using System;
+class exception{
+    public static void Main(){
+        try{
+            Console.WriteLine("Enter any number:");
+            int num = int.Parse(Console.ReadLine());
+            Console.WriteLine("You entered:" + num);
+        }
+        catch (FormatException exe)
+        {
+            Console.WriteLine(exe.Message);
+            Console.WriteLine("You entered a character please entered any string!");
+        }
+    }
+}
