@@ -14,5 +14,6 @@ R1(config)# ntp trusted-key 1
 R1(config)# ntp authentication-key 1 md5 NTPpa55 
 
 R1(config)# service timestamps log datetime msec 
+ex
 R2
 R3
